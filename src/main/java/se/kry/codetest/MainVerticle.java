@@ -15,6 +15,7 @@ import io.vertx.ext.web.handler.StaticHandler;
 import se.kry.codetest.registry.model.Service;
 import se.kry.codetest.registry.ServiceRegistry;
 import se.kry.codetest.registry.ServiceRegistryFactory;
+import io.vertx.ext.web.handler.CorsHandler;
 
 /**
  * Deploys a verticle that keeps a registry of services and their latest status. It also regularly polls
@@ -54,6 +55,7 @@ public class MainVerticle extends AbstractVerticle {
     final Future<Void> future = Future.future();
     poller = new BackgroundPoller(vertx, registry);
     final Router router = Router.router(vertx);
+    router.route().handler(CorsHandler.create("*"));
     router.route().handler(BodyHandler.create());
     vertx.setPeriodic(1000 * 60, timerId -> poller.pollServices());
     setRoutes(router);
@@ -88,13 +90,16 @@ public class MainVerticle extends AbstractVerticle {
   private void handleGetServices(RoutingContext routingContext) {
     System.out.println("GET");
     registry.getServices().setHandler(res -> {
+      System.out.println(res);
       if (res.succeeded()) {
         final List<JsonObject> jsonServices = res.result()
                 .stream()
                 .map(service ->
                              new JsonObject()
                                      .put("name", service.getName())
-                                     .put("status", Service.toString(service)))
+                                     .put("url", service.getUrl().toString())
+                                     .put("addTime", service.getAddTime().toString())
+                                     .put("status", service.getStatus()))
                 .collect(Collectors.toList());
         System.out.println("GET result" + jsonServices.size());
         routingContext.response()

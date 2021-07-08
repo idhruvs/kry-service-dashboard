@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="se.kry.codetest.TestBackgroundPoller" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-06-23T20:19:41" hostname="SE-00015984" time="20.822">
+  <properties/>
+  <testcase name="Test poll with a single element in the registry" classname="se.kry.codetest.TestBackgroundPoller" time="15.618"/>
+  <testcase name="Test poll with a single element in the registry" classname="se.kry.codetest.TestBackgroundPoller" time="5.127"/>
+  <testcase name="Test poll with empty registry" classname="se.kry.codetest.TestBackgroundPoller" time="0.075"/>
+  <system-out><![CDATA[KRY code test service started
+POLL
+GET
+GET result0
+KRY code test service started
+POLL
+KRY code test service started
+POLL
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

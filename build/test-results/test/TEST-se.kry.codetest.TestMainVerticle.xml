@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="se.kry.codetest.TestMainVerticle" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-06-23T20:20:02" hostname="SE-00015984" time="0.46">
+  <properties/>
+  <testcase name="Start a web server on localhost responding to GET /service on port 8080" classname="se.kry.codetest.TestMainVerticle" time="0.099"/>
+  <testcase name="Test Post /service twice fails" classname="se.kry.codetest.TestMainVerticle" time="0.244"/>
+  <testcase name="Start a web server on localhost responding to POST /service on port 8080" classname="se.kry.codetest.TestMainVerticle" time="0.115"/>
+  <system-out><![CDATA[KRY code test service started
+GET
+GET result0
+KRY code test service started
+KRY code test service started
+GET
+GET result1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

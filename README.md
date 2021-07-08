@@ -8,12 +8,14 @@ Unfortunately, the original developer didn't finish the job, and it's now up to 
 Please start with the front-end track and complete as many of those issues as you can. If you have time left, you can also have a look at the back-end track.
 
 ## Front-end track
+
 - We want full show/create/delete functionality for services
 - The results from the poller are not automatically shown to the user (you have to reload the page to see results)
 - Make sure the UI is as user friendly and accessible as possible, both on desktop as well as touch devices
 - This is an example of [Kry design](https://scene.zeplin.io/project/5a9681154e28b2615626a74d), feel free to take inspiration from it or make up an even nicer one
 
 ## Back-end track
+
 - Add update route and functionality to the API (feel free to also update the frontend to use the new route)
 - A user (with a different cookie/local storage) should not see the services added by another user
 
@@ -31,20 +33,25 @@ Spend a maximum of four hours working on this assignment - make sure to finish t
 
 Good luck!
 
-
-# Submission
-
-Put the code in a git repo on GitHub and send us the link (niklas.holmqvist@kry.se) when you are done.
-
-
 # Building
+
 We recommend using IntelliJ as it's what we use day today at the KRY office.
 In intelliJ, choose
+
 ```
 New -> New from existing sources -> Import project from external model -> Gradle -> select "use gradle wrapper configuration"
 ```
 
 You can also run gradle directly from the command line:
+
 ```
 ./gradlew clean run
 ```
+
+# Solution
+
+1. This repository contains the application build in the `webroot` director.
+2. The frontend-code-repository can be found at: https://github.com/idhruvs/kry-service-dashboard-frontend-app.git
+3. Apart from the addition of the fontend app build in the `webroot` directory, I have made the following changes in the backend code:
+   - Updated the response for GET /service endpoint. The updated response is:
+     - `{"name": "<Service-Name>", "url": "<Service-URL>, "addTime": "<Service-creation-time>", "status": "<Service-status>"}`
