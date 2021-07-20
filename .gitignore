@@ -4,3 +4,8 @@ out/
 .gradle/
 gradle
 .vertx
+build/distributions/
+build/libs/
+build/scripts/
+build/scriptsShadow/
+build/tmp/
